@@ -28,6 +28,19 @@ jesa-ui install button --to <your-components-dir>
 
 This will copy the specified component (e.g., `button`) into your project's components directory.
 
+### Example Usage
+
+Here's how to use the button component in your templates:
+
+```html
+<div class="flex flex-col justify-center items-center space-y-4">
+  {% import "components/button.j2" as Component %} {{
+  Component.Button(type="button", label="Default Button", class_="w-full",
+  disabled=false) }} {{ Component.Button(type="button", label="Disabled Button",
+  class_="w-full", disabled=true) }}
+</div>
+```
+
 ## Notes
 
 - This package is framework-agnostic and can be used with any Python web framework (e.g., Flask, Django, FastAPI, etc.).
