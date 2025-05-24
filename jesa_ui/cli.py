@@ -11,7 +11,7 @@ def install_component(name: str, target_dir: str):
         return
     
     source = COMPONENTS[name]
-    dest = os.path.join(target_dir, f'{name}.html')
+    dest = os.path.join(target_dir, f'{name}.j2')
 
     if os.path.exists(dest):
         print(f"component '{name}' already exists at {dest}.")

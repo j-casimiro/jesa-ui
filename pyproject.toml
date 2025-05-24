@@ -14,4 +14,4 @@ license = {text = "MIT"}
 jesa-ui = "jesa_ui.cli:main"
 
 [tool.setuptools]
-package-data = {jesa_ui = ["components/*.html"]} 
+package-data = {jesa_ui = ["components/*.j2"]} 

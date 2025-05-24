@@ -12,7 +12,7 @@ setup(
         ],
     },
     package_data={
-        'jesa_ui': ['components/*.html'],
+        'jesa_ui': ['components/*.j2'],
     },
     description='installable jinja-based tailwind ui components for any python web framework.',
 )
