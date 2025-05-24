@@ -32,7 +32,7 @@ This will copy the specified component (e.g., `button`) into your project's comp
 
 Here's how to use the button component in your templates:
 
-```html
+```jinja
 <div class="flex flex-col justify-center items-center space-y-4">
   {% import "components/button.j2" as Component %} {{
   Component.Button(type="button", label="Default Button", class_="w-full",
