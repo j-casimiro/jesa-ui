@@ -1,0 +1,27 @@
+# Python virtual environment
+.venv
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+*.egg
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db

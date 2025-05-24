@@ -1,0 +1,47 @@
+{% comment %}
+  ShadCN-style Select Component with Optgroups
+
+  Usage:
+  {% include "components/select.html" with
+    name="fruit"
+    id="fruit"
+    class="w-full"
+    selected="apple"
+    placeholder="Select a fruit"
+    options=[
+      {
+        "group": "Fruits",
+        "items": [
+          {"value": "apple", "label": "Apple"},
+          {"value": "banana", "label": "Banana"},
+          {"value": "blueberry", "label": "Blueberry"},
+          {"value": "grapes", "label": "Grapes"},
+          {"value": "pineapple", "label": "Pineapple"}
+        ]
+      }
+    ]
+  %}
+{% endcomment %}
+
+<select
+  class="block w-full rounded-md border border-gray-300 bg-white py-2 px-2 text-sm text-gray-900 shadow-sm focus-visible:outline-none focus:ring-neutral-500 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 {{ class|default:'' }} {% if disabled %}opacity-50 cursor-not-allowed{% endif %}"
+  {% if disabled %}disabled{% endif %}
+  {% if name %}name="{{ name }}"{% endif %}
+  {% if id %}id="{{ id }}"{% endif %}
+>
+  {% if placeholder %}
+    <option value="" disabled {% if not selected %}selected{% endif %}>{{ placeholder }}</option>
+  {% endif %}
+
+  {% for group in options %}
+    {% if group.group %}
+      <optgroup label="{{ group.group }}">
+        {% for item in group.items %}
+          <option value="{{ item.value }}" {% if item.value == selected %}selected{% endif %}>{{ item.label }}</option>
+        {% endfor %}
+      </optgroup>
+    {% else %}
+      <option value="{{ group.value }}" {% if group.value == selected %}selected{% endif %}>{{ group.label }}</option>
+    {% endif %}
+  {% endfor %}
+</select>

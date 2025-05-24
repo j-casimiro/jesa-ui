@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jesa_ui"
+version = "0.0.1"
+description = "installable jinja-based tailwind ui components for any python web framework"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+[project.scripts]
+jesa-ui = "jesa_ui.cli:main"
+
+[tool.setuptools]
+package-data = {jesa_ui = ["components/*.html"]} 
