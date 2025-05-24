@@ -1,17 +1,21 @@
-{% comment %}
-  ShadCN-style Input Component
-
-  Usage:
-  {% include "components/input.html" with type="text" name="email" id="email" placeholder="Enter your email" value="user@example.com" class="w-full" %}
-{% endcomment %}
-
-<input
-  type="{{ type|default:'text' }}"
-  name="{{ name|default:'' }}"
-  id="{{ id|default:'' }}"
-  value="{{ value|default:'' }}"
-  placeholder="{{ placeholder|default:'' }}"
-  {% if disabled == 'true' %}disabled{% endif %}
-  {% if readonly == 'true' %}readonly{% endif %}
-  class="flex h-10 w-full rounded-md border shadow-sm border-gray-300 border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus:ring-neutral-500 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 {{ class|default:'' }}"
-/>
+{% macro Input(
+    type='text',
+    name='',
+    id='',
+    value='',
+    placeholder='',
+    disabled=false,
+    readonly=false,
+    class_=''
+) %}
+  <input
+    type="{{ type }}"
+    name="{{ name }}"
+    id="{{ id }}"
+    value="{{ value }}"
+    placeholder="{{ placeholder }}"
+    {% if disabled %}disabled{% endif %}
+    {% if readonly %}readonly{% endif %}
+    class="flex h-10 w-full rounded-md border shadow-sm border-gray-300 border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-ring-neutral-500 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 {{ class_ }}"
+  />
+{% endmacro %}
